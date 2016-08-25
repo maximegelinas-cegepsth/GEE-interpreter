@@ -43,10 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandsMapper.cs" />
-    <Compile Include="Commands\AddNumberCommand.cs" />
+    <Compile Include="Commands\RemoveCommand.cs" />
+    <Compile Include="IMapper.cs" />
+    <Compile Include="Mapper.cs" />
+    <Compile Include="Commands\AddCommand.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="Interpreter.cs" />
+    <Compile Include="Invoker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

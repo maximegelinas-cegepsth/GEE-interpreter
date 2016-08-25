@@ -1,12 +1,32 @@
-﻿namespace Interpreter
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Interpreter
 {
     public class Program
     {
+        private static readonly Interpreter Interpreter = new Interpreter();
+        private static readonly Invoker Invoker = new Invoker();
+        private static readonly Mapper Mapper = new Mapper();
+        private static readonly Stack<int> Memory = new Stack<int>();
+
         private static void Main(string[] args)
         {
-            var interpreter = new Interpreter();
+            Invoker.Commands = Interpreter.GetCommands("P1P2+WP10P1wp-", Mapper)
+                .Select(c =>
+                {
+                    c.Stack = Memory;
+                    return c;
+                });
 
-            var commands = interpreter.GetCommands("P1P2+WP10P1w-");
+            Invoker.ExecuteCommands();
+
+            DisplayMemoryGraph();
+
+            Console.ReadKey();
         }
+
+        public static void DisplayMemoryGraph() => Console.WriteLine($"| {string.Join(" | ", Memory)} |");
     }
 }

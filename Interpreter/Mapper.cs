@@ -4,14 +4,14 @@ using Interpreter.Commands;
 
 namespace Interpreter
 {
-    public class CommandsMapper
+    public class Mapper: IMapper
     {
         private readonly Dictionary<char, Type> _map = new Dictionary<char, Type>()
         {
-            {'P', typeof(AddNumberCommand)}
+            { 'P', typeof(AddCommand) },
+            { 'p', typeof(RemoveCommand) }
         };
 
-        public Type GetCommandType(char letter)
-            => _map.ContainsKey(letter) ? _map[letter] : null;
+        public Type GetCommandType(char letter) => _map.ContainsKey(letter) ? _map[letter] : null;
     }
 }

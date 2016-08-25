@@ -7,22 +7,33 @@ namespace Interpreter
 {
     public class Interpreter
     {
-        private readonly CommandsMapper _mapper = new CommandsMapper();
+        private readonly Mapper _mapper = new Mapper();
 
-        public IEnumerable<ICommand> GetCommands(string code)
+        public IEnumerable<ICommand> GetCommands(string code, IMapper mapper)
         {
-            var matches = Regex.Matches(code, @"[a-zA-Z+\-][0-9]*");
+            var commands = new List<ICommand>();
+            var matches = Regex.Matches(code, @"([a-zA-Z+\-])([0-9]*)");
 
-            var commands = (
-                from Match match in matches
-                let commandTxt = match.ToString()
-                let letter = commandTxt[0]
-                let args = new object[] { new[] { commandTxt.Substring(1) } }
-                let commandType = _mapper.GetCommandType(letter)
-                where commandType != null
-                select (ICommand) Activator.CreateInstance(commandType, args));
+            foreach (Match match in matches)
+            {
+                var cmdTxt = match.ToString();
+                var cmdLetter = cmdTxt[0];
+                dynamic cmdParam = null;
+                var cmdType = mapper.GetCommandType(cmdLetter);
 
-            return commands.ToArray();
+                if (cmdType == null) continue;
+
+                if (cmdTxt.Length > 1)
+                {
+                    cmdParam = int.Parse(cmdTxt.Substring(1));
+                }
+                var cmd = (ICommand)Activator.CreateInstance(cmdType);
+                cmd.Parameter = cmdParam;
+
+                commands.Add(cmd);
+            }
+
+            return commands;
         }
     }
 }
