@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandsMapper.cs" />
+    <Compile Include="Commands\AddNumberCommand.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="Interpreter.cs" />
     <Compile Include="Program.cs" />

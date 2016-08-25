@@ -8,10 +8,10 @@ namespace Interpreter
     {
         private readonly Dictionary<char, Type> _map = new Dictionary<char, Type>()
         {
-            { 'P', typeof(AddNumberCommand) }
+            {'P', typeof(AddNumberCommand)}
         };
 
-        public Type GetCommandType(char letter) 
-            => _map[letter] != null ? _map[letter] : null;
+        public Type GetCommandType(char letter)
+            => _map.ContainsKey(letter) ? _map[letter] : null;
     }
 }

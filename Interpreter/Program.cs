@@ -6,7 +6,7 @@
         {
             var interpreter = new Interpreter();
 
-            interpreter.GetCommands("P1P2+WP10P1w-");
+            var commands = interpreter.GetCommands("P1P2+WP10P1w-");
         }
     }
 }
