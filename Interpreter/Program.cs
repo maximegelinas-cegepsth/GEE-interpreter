@@ -20,16 +20,21 @@ namespace Interpreter
                 Console.Write("Write your program: \r\n> ");
                 line = Console.ReadLine();
 
+                // Gets the commands.
                 Invoker.Commands = Interpreter.GetCommands(line, Mapper)
                 .Select(c =>
                 {
+                    // Sets memory context of the commands.
                     c.Stack = Memory;
                     return c;
                 });
 
+                // If some commands are found.
                 if (!Invoker.Commands.Any()) continue;
 
+                // Executes each commands.
                 Invoker.ExecuteCommands();
+                
                 Memory.Clear();
             }
         }

@@ -27,6 +27,7 @@ namespace Interpreter
                 {
                     cmdParam = int.Parse(cmdTxt.Substring(1));
                 }
+                // TO IMPROVE: Use a creational pattern to instantiate the commands (abstract factory or builder).
                 var cmd = (ICommand)Activator.CreateInstance(cmdType);
                 cmd.Parameter = cmdParam;
 
