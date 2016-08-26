@@ -9,7 +9,9 @@ namespace Interpreter
         private readonly Dictionary<char, Type> _map = new Dictionary<char, Type>()
         {
             { 'P', typeof(AddCommand) },
-            { 'p', typeof(RemoveCommand) }
+            { 'p', typeof(RemoveCommand) },
+            { 'd', typeof(DuplicateCommand) },
+            { '+', typeof(SumCommand) }
         };
 
         public Type GetCommandType(char letter) => _map.ContainsKey(letter) ? _map[letter] : null;

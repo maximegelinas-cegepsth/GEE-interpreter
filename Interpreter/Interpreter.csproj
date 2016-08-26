@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\DuplicateCommand.cs" />
     <Compile Include="Commands\RemoveCommand.cs" />
+    <Compile Include="Commands\SumCommand.cs" />
     <Compile Include="IMapper.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="Commands\AddCommand.cs" />
