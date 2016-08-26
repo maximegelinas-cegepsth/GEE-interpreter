@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\DisplayTextCommand.cs" />
     <Compile Include="Commands\DuplicateCommand.cs" />
     <Compile Include="Commands\ReadCommand.cs" />
     <Compile Include="Commands\ReadTextCommand.cs" />
