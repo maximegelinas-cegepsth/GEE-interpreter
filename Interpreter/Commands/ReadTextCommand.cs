@@ -19,8 +19,6 @@ namespace Interpreter.Commands
 
             do
             {
-                Console.Clear();
-                Console.WriteLine("Enter input (text):");
                 line = Console.ReadLine();
             }
             while (string.IsNullOrEmpty(line));

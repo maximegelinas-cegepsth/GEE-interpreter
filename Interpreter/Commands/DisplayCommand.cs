@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Interpreter.Commands
 {
-    public class ReadCommand : ICommand
+    public class DisplayCommand : ICommand
     {
         public int? Parameter { get; set; }
 
@@ -13,16 +13,7 @@ namespace Interpreter.Commands
         {
             if (Stack == null) throw new InvalidOperationException();
 
-            var line = "";
-            int number;
-
-            do
-            {
-                line = Console.ReadLine();
-            }
-            while (string.IsNullOrEmpty(line) || !int.TryParse(line, out number));
-
-            Stack.Push(number);
+            Console.WriteLine(Stack.Pop());
         }
     }
 }

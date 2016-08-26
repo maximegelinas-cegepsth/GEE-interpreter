@@ -15,7 +15,9 @@ namespace Interpreter
             { '-', typeof(SubtractCommand) },
             { 'r', typeof(ReadTextCommand) },
             { 'R', typeof(ReadCommand) },
-            { 'w', typeof(DisplayTextCommand) }
+            { 'w', typeof(DisplayTextCommand) },
+            { 'W', typeof(DisplayCommand) },
+            { 'z', typeof(AddRandomCommand) }
         };
 
         public Type GetCommandType(char letter) => _map.ContainsKey(letter) ? _map[letter] : null;

@@ -3,26 +3,19 @@ using System.Collections.Generic;
 
 namespace Interpreter.Commands
 {
-    public class ReadCommand : ICommand
+    public class AddRandomCommand : ICommand
     {
         public int? Parameter { get; set; }
 
         public Stack<int> Stack { get; set; }
 
+        private readonly Random _generator = new Random();
+
         public void Execute()
         {
             if (Stack == null) throw new InvalidOperationException();
 
-            var line = "";
-            int number;
-
-            do
-            {
-                line = Console.ReadLine();
-            }
-            while (string.IsNullOrEmpty(line) || !int.TryParse(line, out number));
-
-            Stack.Push(number);
+            Stack.Push(_generator.Next());
         }
     }
 }
