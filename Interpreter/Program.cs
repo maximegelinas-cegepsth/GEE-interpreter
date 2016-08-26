@@ -13,7 +13,7 @@ namespace Interpreter
 
         private static void Main(string[] args)
         {
-            Invoker.Commands = Interpreter.GetCommands("P5P2+", Mapper)
+            Invoker.Commands = Interpreter.GetCommands("R", Mapper)
                 .Select(c =>
                 {
                     c.Stack = Memory;

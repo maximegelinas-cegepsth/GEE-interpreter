@@ -44,7 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\DuplicateCommand.cs" />
+    <Compile Include="Commands\ReadCommand.cs" />
+    <Compile Include="Commands\ReadTextCommand.cs" />
     <Compile Include="Commands\RemoveCommand.cs" />
+    <Compile Include="Commands\SubtractCommand.cs" />
     <Compile Include="Commands\SumCommand.cs" />
     <Compile Include="IMapper.cs" />
     <Compile Include="Mapper.cs" />

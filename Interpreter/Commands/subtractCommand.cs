@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Interpreter.Commands
 {
-    public class SumCommand : ICommand
+    public class SubtractCommand : ICommand
     {
         public int? Parameter { get; set; }
 
@@ -13,7 +13,7 @@ namespace Interpreter.Commands
         {
             if (Stack == null) throw new InvalidOperationException();
 
-            Stack.Push(Stack.Pop() + Stack.Pop());
+            Stack.Push(Stack.Pop() - Stack.Pop());
         }
     }
 }

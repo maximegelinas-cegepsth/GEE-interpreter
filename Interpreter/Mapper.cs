@@ -11,7 +11,10 @@ namespace Interpreter
             { 'P', typeof(AddCommand) },
             { 'p', typeof(RemoveCommand) },
             { 'd', typeof(DuplicateCommand) },
-            { '+', typeof(SumCommand) }
+            { '+', typeof(SumCommand) },
+            { '-', typeof(SubtractCommand) },
+            { 'r', typeof(ReadTextCommand) },
+            { 'R', typeof(ReadCommand) }
         };
 
         public Type GetCommandType(char letter) => _map.ContainsKey(letter) ? _map[letter] : null;
