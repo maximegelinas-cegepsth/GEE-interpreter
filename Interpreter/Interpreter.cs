@@ -21,12 +21,15 @@ namespace Interpreter
                 dynamic cmdParam = null;
                 var cmdType = mapper.GetCommandType(cmdLetter);
 
+                // If the command exists.
                 if (cmdType == null) continue;
 
+                // If the command has a parameter.
                 if (cmdTxt.Length > 1)
                 {
                     cmdParam = int.Parse(cmdTxt.Substring(1));
                 }
+                // Instantiate the command
                 // TO IMPROVE: Use a creational pattern to instantiate the commands (abstract factory or builder).
                 var cmd = (ICommand)Activator.CreateInstance(cmdType);
                 cmd.Parameter = cmdParam;
