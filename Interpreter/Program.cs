@@ -12,7 +12,7 @@ namespace Interpreter
         private static readonly Stack<int> Memory = new Stack<int>();
 
         private static void Main(string[] args)
-        {        
+        {
             var line = "";
 
             while (string.IsNullOrEmpty(line) || line != "exit")
@@ -30,12 +30,24 @@ namespace Interpreter
                 });
 
                 // If some commands are found.
-                if (!Invoker.Commands.Any()) continue;
+                if (!Invoker.Commands.Any())
+                {
+                    Console.Write("No command found. \r\n\r\n");
+                    continue;
+                }
 
-                // Executes each commands.
-                Invoker.ExecuteCommands();
-                
+                try
+                {
+                    // Executes each commands.
+                    Invoker.ExecuteCommands();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid program.");
+                }
+
                 Memory.Clear();
+                Console.WriteLine();
             }
         }
 
